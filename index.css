@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: black;
+    color: white;
+    overflow-x: hidden;
+}
+
+
+.home_section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100vw;
+    height: 100vh;
+    padding: 2vh 2vw;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav_contact_link {
+    height: 5vh;
+    padding: 0.75ch 1.5vw;
+    border: 1px solid white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3 ease;
+}
+
+.nav_contact_link:hover {
+    background-color: white;
+    color: black;
+}
+
+.sub_hero_text {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1vw;
+    font-weight: 400;
+}
+
+.sub_hero_text p {
+    width: 35vw;
+    margin-top: 5vh;
+}
+
+.hero_text {
+    font-family: "Anton", sans-serif;
+    font-size: 12.5vw;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.scroll_btn {
+    position: absolute;
+    bottom: 2vh;
+    right: 3vh;
+}
+
+.about_section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about_section img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    filter: brightness(0.3);
+}
+
+.about_span{
+    z-index: 1;
+    margin-left: 2vw;
+}
+
+.about_content{
+    z-index: 1;
+    margin-bottom: -30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5vh;
+}
+
+.about_topics{
+    width: 95%;
+    display: flex;
+    gap: 4vw;
+    text-transform: uppercase;
+}
+
+.about_text{
+    font-size: 1.5vw;
+    width: 95%;
+}
+
+.skills{
+    z-index: 1;
+    padding: 0 2.5%;
+    font-family: "Anton", sans-serif;
+    text-transform: uppercase;
+    font-size: 2.2vw;
+    display: flex;
+    justify-content: flex-start;
+    gap: 3vw;
+    overflow: hidden;
+}
+
+.projects_section{
+    font-family: "Anton", sans-serif;
+    width: 100vw;
+    height: 100vh;
+    padding: 5vh 2vw;
+}
+
+.project_title{
+    font-size: 4vw;
+    text-transform: uppercase;
+}
+
+.projects_container{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 35vw 1fr;
+    grid-gap: 1vw;
+}
+
+.sub_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1vw;
+}
+
+.project{
+    position: relative;
+    padding: 1vw;
+}
+
+.projects_container span{
+    font-family: "Poppins", sans-serif;
+    z-index: 2;
+    font-size: 5vw;
+    position: absolute;
+    bottom: 0;
+}
+
+.project img{
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
+}
+
+.contact_section{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.contact_section span{
+    position: absolute;
+    cursor: pointer;
+}
+
+.contact_section span:nth-child(1){
+    top: 20%;
+    left: 15%;
+}
+
+.contact_section span:nth-child(2){
+    top: 20%;
+    right: 15%;
+}
+
+.contact_section span:nth-child(3){
+    top: 75%;
+    left: 15%;
+}
+
+.contact_section span:nth-child(4){
+    top: 75%;
+    right: 15%;
+}
+
+.contact_section span:nth-child(5){
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    border: 1px solid white;
+    padding: 1vw 1.5vw;
+    border-radius: 20px;
+}
+
+.contact_section span:nth-child(5):hover{
+    background-color: white;
+    color: black;
+}
+
+.footer{
+    width: 100vw;
+    height: 40vh;
+    padding: 0 10vw;
+    display: grid;
+    grid-template-columns: 10vw 10vw 5vw 5vw;
+    gap: 12.5vw;
+    align-items: center;
+    font-size: 1vw;
+}
+
+.footer_title{
+    font-size: 5vw;
+    font-family: "Anton", sans-serif;
+    line-height: 1;
+}
+
+.footer div{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.footer div span{
+    cursor: pointer;
+}
+
+.footer div span:hover{
+    text-decoration: underline;
+}
+      
+html {
+        scroll-behavior: smooth;
+      }
+
+      /* Chat popup */
+      .chat-popup {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 300px;
+        background: #1a1a1a;
+        color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+        z-index: 1000;
+      }
+
+      .chat-header {
+        background: #333;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+      }
+
+      .chat-body {
+        padding: 10px;
+        height: 200px;
+        overflow-y: auto;
+      }
+
+      .chat-input {
+        display: flex;
+        border-top: 1px solid #444;
+      }
+
+      .chat-input input {
+        flex: 1;
+        border: none;
+        outline: none;
+        padding: 10px;
+        background: #222;
+        color: white;
+      }
+
+      .chat-input button {
+        background: #555;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+      }
+
+      .chat-input button:hover {
+        background: #777;
+      }
+
+      .close-chat {
+        cursor: pointer;
+        color: #bbb;
+      }
+
+      .close-chat:hover {
+        color: white;
+      }
+
+      /* Footer links */
+      .footer_nav a {
+        color: #ccc;
+        text-decoration: none;
+        margin-right: 15px;
+        transition: color 0.3s;
+      }
+
+      .footer_nav a:hover {
+        color: white;
+      }
+
+      .contact_section a,
+      .contact_section span {
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+        margin-right: 10px;
+      }
+
+      .contact_section a:hover {
+        text-decoration: underline;
+      }
+
+      /* ---- Skill progress bars ---- */
+      .skills-bars {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+        width: 60%;
+      }
+
+      .skill-bar {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        font-size: 14px;
+      }
+
+      .bar {
+        background: #333;
+        border-radius: 8px;
+        overflow: hidden;
+        height: 10px;
+      }
+
+      .bar-fill {
+        height: 10px;
+        background: #00bcd4;
+        width: 0;
+        transition: width 1.5s ease-in-out;
+      }
+
+      .about_topics span {
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+
+      .about_topics span:hover {
+        color: #00bcd4;
+      }
