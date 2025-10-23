@@ -1,311 +1,441 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
-    /* ========== RESET & CƠ BẢN ========== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
-    body {
-      background: #0d1117;
-      color: #e6edf3;
-      overflow-x: hidden;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="index.css" />
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
 
-    header {
-      width: 100%;
-      padding: 20px 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #161b22;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-    }
-    header h1 {
-      color: #58a6ff;
-      font-size: 24px;
-    }
-    header nav a {
-      color: #e6edf3;
-      margin-left: 25px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    header nav a:hover {
-      color: #58a6ff;
-    }
+  <body>
+    <!-- HOME -->
+    <div class="home_section" id="home">
+      <nav>
+        <span>Tiến Thuận</span>
+        <span>Project</span>
+        <span>
+          UX/UI Designer
+          <br />
+          Software Engineer
+        </span>
+        <span class="nav_contact_link">Contact</span>
+      </nav>
 
-    /* ========== PHẦN HOME ========== */
-    .home {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 20px;
-    }
-    .home h2 {
-      font-size: 50px;
-      color: #58a6ff;
-    }
-    .home p {
-      font-size: 18px;
-      margin-top: 10px;
-      max-width: 600px;
-      line-height: 1.6;
-    }
+      <span class="sub_hero_text">
+        <p>
+          Step into the boundless realm of the digital landscape, where the
+          fusion of web development prowess and graphic design ingenuity crafts
+          immersive online journeys. With an unwavering dedication to innovation
+          and a penchant for redefining norms, I seamlessly blend technical
+          acumen with creative flair, infusing each project with a distinctive
+          touch that captivates and inspires.
+        </p>
+      </span>
 
-    /* ========== PHẦN KỸ NĂNG ========== */
-    .skills {
-      padding: 100px 60px;
-      background: #161b22;
-    }
-    .skills h2 {
-      text-align: center;
-      margin-bottom: 40px;
-      color: #58a6ff;
-    }
-    .skills-list {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-    .skills-list div {
-      background: #0d1117;
-      padding: 20px 40px;
-      border-radius: 10px;
-      border: 1px solid #30363d;
-      transition: 0.3s;
-    }
-    .skills-list div:hover {
-      transform: translateY(-5px);
-      border-color: #58a6ff;
-    }
-
-    /* ========== PHẦN DỰ ÁN ========== */
-    .projects {
-      padding: 100px 60px;
-    }
-    .projects h2 {
-      text-align: center;
-      color: #58a6ff;
-      margin-bottom: 40px;
-    }
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-    .project-card {
-      background: #161b22;
-      border-radius: 10px;
-      overflow: hidden;
-      border: 1px solid #30363d;
-      transition: 0.3s;
-    }
-    .project-card:hover {
-      transform: scale(1.03);
-      border-color: #58a6ff;
-    }
-    .project-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .project-card h3 {
-      padding: 15px;
-      color: #58a6ff;
-    }
-    .project-card p {
-      padding: 0 15px 15px;
-      font-size: 14px;
-      color: #ccc;
-    }
-
-    /* ========== PHẦN LIÊN HỆ ========== */
-    .contact_section {
-      background: #161b22;
-      padding: 80px 20px;
-      text-align: center;
-    }
-    .contact_section span {
-      display: inline-block;
-      margin: 15px 20px;
-      cursor: pointer;
-      color: #e6edf3;
-      font-size: 18px;
-      transition: 0.3s;
-    }
-    .contact_section span:hover {
-      color: #58a6ff;
-    }
-
-    /* ========== POPUP CHAT ========== */
-    #chatPopup {
-      display: none;
-      justify-content: center;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 2000;
-    }
-    .chat-box {
-      background: #161b22;
-      border: 1px solid #30363d;
-      border-radius: 15px;
-      padding: 20px;
-      width: 320px;
-      position: relative;
-    }
-    .chat-box h3 {
-      text-align: center;
-      margin-bottom: 10px;
-      color: #58a6ff;
-    }
-    .chat-box textarea {
-      width: 100%;
-      height: 100px;
-      background: #0d1117;
-      border: 1px solid #30363d;
-      border-radius: 10px;
-      color: #e6edf3;
-      padding: 10px;
-      resize: none;
-    }
-    .chat-box button {
-      margin-top: 10px;
-      width: 100%;
-      padding: 10px;
-      border: none;
-      border-radius: 10px;
-      background: #58a6ff;
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .chat-box button:hover {
-      background: #1f6feb;
-    }
-    .close-chat {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      cursor: pointer;
-      color: #999;
-      font-size: 18px;
-    }
-  </style>
-</head>
-<body>
-  <!-- ===== HEADER ===== -->
-  <header>
-    <h1>My Portfolio</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <!-- ===== HOME ===== -->
-  <section class="home" id="home">
-    <h2>Hi, I'm Thuận</h2>
-    <p>
-      I'm passionate about <b>web design</b> and front-end development — I love
-      creating beautiful, modern, and interactive websites.
-    </p>
-  </section>
-
-  <!-- ===== SKILLS ===== -->
-  <section class="skills" id="skills">
-    <h2>My Skills</h2>
-    <div class="skills-list">
-      <div>HTML</div>
-      <div>CSS</div>
-      <div>JavaScript</div>
-      <div>React</div>
-      <div>UI/UX Design</div>
+      <span class="hero_text">
+        website
+        <br />
+        developer
+      </span>
+      <span class="scroll_btn">(Scroll to Explore)</span>
     </div>
-  </section>
 
-  <!-- ===== PROJECTS ===== -->
-  <section class="projects" id="projects">
-    <h2>Projects</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <img src="https://picsum.photos/400/250?random=1" alt="Project 1" />
-        <h3>Portfolio Website</h3>
-        <p>A responsive personal portfolio built with HTML, CSS, and JS.</p>
+    <!-- ABOUT -->
+    <div class="about_section" id="about">
+      <img
+        src="assets/img/z7142132868282_eecf53840019467a12ceafd8c4baabf3.jpg"
+      />
+      <span class="about_span">Who am I?</span>
+      <div class="about_content">
+        <div class="about_topics">
+          <span class="about-btn">About me</span>
+          <span class="skills-btn">Skills</span>
+        </div>
+        <div class="about_text">
+          Hello, I am Thuan (2005), a student at Ho Chi Minh City University of
+          Transport .Driven undergraduate software engineer seeking
+          opportunities to apply my skills and passion for building innovative
+          solutions. Eager to lean and contribute to a collaborative team
+          environment. I'm particularly interested in website building, UX/UI
+          designing, user interface development and scalable software. I believe
+          my strong work ethic and dedication to continuous learning will make
+          me a valuable asset to your team.
+        </div>
+
+        <!-- Skill bars section -->
+        <div class="skills-bars">
+          <div class="skill-bar">
+            <span>HTML</span>
+            <div class="bar">
+              <div class="bar-fill" data-width="90"></div>
+            </div>
+          </div>
+          <div class="skill-bar">
+            <span>CSS</span>
+            <div class="bar">
+              <div class="bar-fill" data-width="85"></div>
+            </div>
+          </div>
+          <div class="skill-bar">
+            <span>JavaScript</span>
+            <div class="bar">
+              <div class="bar-fill" data-width="75"></div>
+            </div>
+          </div>
+          <div class="skill-bar">
+            <span>ReactJS</span>
+            <div class="bar">
+              <div class="bar-fill" data-width="70"></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="project-card">
-        <img src="https://picsum.photos/400/250?random=2" alt="Project 2" />
-        <h3>Product Landing Page</h3>
-        <p>Modern landing page with smooth animations and clean design.</p>
-      </div>
-      <div class="project-card">
-        <img src="https://picsum.photos/400/250?random=3" alt="Project 3" />
-        <h3>Blog Template</h3>
-        <p>Responsive blog layout with dark theme and readable typography.</p>
+
+      <div class="skills">
+        <span>Figma</span>
+        <span>illustrator</span>
+        <span>Webflow</span>
+        <span>Framer</span>
+        <span>Wordpress</span>
+        <span>Gsap</span>
+        <span>ReactJS</span>
+        <span>NodeJS</span>
+        <span>NextJS</span>
       </div>
     </div>
-  </section>
 
-  <!-- ===== CONTACT ===== -->
-  <section class="contact_section" id="contact">
-    <span>LinkedIn</span>
-    <span>Facebook</span>
-    <span>Instagram</span>
-    <span>GitHub</span>
-    <span>Wanna work with me?</span>
-  </section>
+    <!-- PROJECTS -->
+    <div class="projects_section" id="project">
+      <span class="project_title">My Projects</span>
 
-  <!-- ===== CHAT POPUP ===== -->
-  <div id="chatPopup">
-    <div class="chat-box">
-      <span class="close-chat"><i class="fa-solid fa-xmark"></i></span>
-      <h3>Let's Talk!</h3>
-      <textarea placeholder="Type your message..."></textarea>
-      <button>Send Message</button>
+      <div class="projects_container">
+        <a href="https://www.flowercorner.vn/" target="_blank" class="project">
+          <img src="assets/img/a.png" alt="Flower Corner" />
+          <div class="overlay"><span class="project_name"></span></div>
+        </a>
+
+        <a href="https://www.flowercorner.vn/" target="_blank" class="project">
+          <img src="assets/img/b.jpg" alt="Flower Corner" />
+          <div class="overlay"><span class="project_name"></span></div>
+        </a>
+
+        <a href="https://spiderdad.vn/" target="_blank" class="project">
+          <img src="assets/img/e.png" alt="SpiderDad" />
+          <div class="overlay"><span class="project_name"></span></div>
+        </a>
+
+       <a href="https://spiderdad.vn/" target="_blank" class="project">
+          <img src="assets/img/d.jpg" alt="SpiderDad" />
+          <div class="overlay"><span class="project_name"></span></div>
+        </a>
+
+      </div>
     </div>
-  </div>
 
-  <!-- ===== SCRIPT ===== -->
-  <script>
-    const chatPopup = document.getElementById("chatPopup");
-    const openBtn = document.querySelector(".contact_section span:last-child");
-    const closeBtn = document.querySelector(".close-chat");
+    <!-- CONTACT -->
+    <div class="contact_section" id="contact">
+      <span class="open-chat">Wanna work with me</span>
 
-    openBtn.addEventListener("click", () => {
-      chatPopup.style.display = "flex";
-    });
 
-    closeBtn.addEventListener("click", () => {
-      chatPopup.style.display = "none";
-    });
 
-    window.addEventListener("click", (e) => {
-      if (e.target === chatPopup) {
-        chatPopup.style.display = "none";
+      <!-- SOCIAL ICONS -->
+      <div class="contact_icons">
+        <a href="https://www.linkedin.com/jobs/" target="_blank"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
+        <a href="https://www.facebook.com/tien.thuan.487384" target="_blank"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+        <a href="https://www.instagram.com/peace_c10h14n2/" target="_blank"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="https://github.com/TienThuan1806" target="_blank"
+          ><i class="fab fa-github"></i
+        ></a>
+      </div>
+    </div>
+
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <span class="footer_title">Shy <br />Kid's</span>
+      <span class="footer_contact_link">Let's work together</span>
+
+      <div class="footer_nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#project">Project</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer_nav">
+        <a href="https://www.linkedin.com/jobs/" target="_blank">Linked In.</a>
+        <a href="https://www.facebook.com/tien.thuan.487384" target="_blank">Facebook.</a>
+        <a href="https://www.instagram.com/peace_c10h14n2/" target="_blank">Instagram.</a>
+        <a href="https://github.com/TienThuan1806" target="_blank">Github.</a>
+      </div>
+    </div>
+
+    <!-- CHAT POPUP -->
+    <div class="chat-popup" id="chatPopup">
+      <div class="chat-header">
+        Chat with me
+        <span class="close-chat">&times;</span>
+      </div>
+      <div class="chat-body">
+        <p>Hello! 👋 How can I help you today?</p>
+      </div>
+      <div class="chat-input">
+        <input type="text" placeholder="Type your message..." />
+        <button>Send</button>
+      </div>
+    </div>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+      /* Projects styling */
+      .projects_section {
+        text-align: center;
+        padding: 100px 0;
+        background-color: #000;
+        color: #fff;
       }
-    });
-  </script>
-</body>
-</html>
+      .project_title {
+        font-size: 2.2rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+        display: block;
+        margin-bottom: 50px;
+        text-transform: uppercase;
+      }
+      .projects_container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        justify-content: center;
+        padding: 0 50px;
+      }
+      .project {
+        position: relative;
+        border-radius: 18px;
+        overflow: hidden;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+      }
+      .project img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease, filter 0.5s ease;
+        border-radius: 18px;
+      }
+      .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        opacity: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.4s ease;
+      }
+      .project_name {
+        color: #fff;
+        font-size: 1rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s ease;
+      }
+      .project:hover img {
+        transform: scale(1.08);
+        filter: brightness(0.7);
+      }
+      .project:hover .overlay {
+        opacity: 1;
+      }
+      .project:hover .project_name {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .project:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 28px rgba(255, 255, 255, 0.15);
+      }
+
+      /* Contact section */
+      .contact_section {
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+        padding: 120px 0 80px;
+      }
+
+      .open-chat {
+        font-size: 1.4rem;
+        font-weight: 600;
+        cursor: pointer;
+        color: #00ffff;
+        transition: all 0.3s ease;
+        display: block;
+        margin-bottom: 30px;
+      }
+
+      .open-chat:hover {
+        transform: scale(1.1);
+        color: #fff;
+      }
+
+      .contact_icons {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+      }
+
+      .contact_icons a {
+        color: #00ffff;
+        font-size: 1.8rem;
+        transition: all 0.3s ease;
+      }
+
+      .contact_icons a:hover {
+        color: #fff;
+        transform: scale(1.2);
+      }
+
+      /* Scroll text style */
+      .scroll_btn {
+        display: block;
+        text-align: center;
+        font-size: 1rem;
+        color: #fff;
+        opacity: 1;
+        transition: opacity 0.6s ease;
+      }
+    </style>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero animation
+      gsap.from("nav span", {
+        opacity: 0,
+        y: -30,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power3.out",
+      });
+      gsap.from(".hero_text", {
+        opacity: 0,
+        y: 50,
+        duration: 1.2,
+        delay: 0.8,
+      });
+      gsap.from(".sub_hero_text p", {
+        opacity: 0,
+        y: 30,
+        duration: 1.5,
+        delay: 1.2,
+      });
+
+      // Scroll-triggered disappearance of scroll text
+      gsap.to(".scroll_btn", {
+        scrollTrigger: {
+          trigger: ".about_section",
+          start: "top center",
+          toggleActions: "play none none reverse",
+        },
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.out",
+      });
+
+      // About animations
+      gsap.from(".about_section img", {
+        scrollTrigger: { trigger: ".about_section", start: "top 80%" },
+        opacity: 0,
+        x: -100,
+        duration: 1,
+      });
+      gsap.from(".about_content", {
+        scrollTrigger: { trigger: ".about_section", start: "top 80%" },
+        opacity: 0,
+        x: 100,
+        duration: 1,
+      });
+
+      // Projects animation
+      gsap.from(".project_title", {
+        scrollTrigger: { trigger: ".projects_section", start: "top 90%" },
+        opacity: 0,
+        y: 40,
+        duration: 1,
+        ease: "power2.out",
+      });
+      gsap.from(".project", {
+        scrollTrigger: { trigger: ".projects_section", start: "top 85%" },
+        opacity: 0,
+        y: 60,
+        duration: 1,
+        stagger: 0.3,
+        ease: "power2.out",
+      });
+
+      // Chat popup
+      const chatPopup = document.getElementById("chatPopup");
+      const openBtn = document.querySelector(".open-chat");
+      const closeBtn = document.querySelector(".close-chat");
+
+      openBtn.addEventListener("click", () => {
+        chatPopup.style.display = "flex";
+        gsap.fromTo(
+          ".chat-popup",
+          { scale: 0.8, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.7)" }
+        );
+      });
+
+      closeBtn.addEventListener("click", () => {
+        gsap.to(".chat-popup", {
+          scale: 0.8,
+          opacity: 0,
+          duration: 0.3,
+          onComplete: () => (chatPopup.style.display = "none"),
+        });
+      });
+
+      // About vs Skills toggle
+      const aboutBtn = document.querySelector(".about-btn");
+      const skillsBtn = document.querySelector(".skills-btn");
+      const aboutText = document.querySelector(".about_text");
+      const skillsBars = document.querySelector(".skills-bars");
+      const bars = document.querySelectorAll(".bar-fill");
+
+      skillsBtn.addEventListener("click", () => {
+        aboutText.style.display = "none";
+        skillsBars.style.display = "flex";
+        bars.forEach((bar) => {
+          const width = bar.getAttribute("data-width");
+          gsap.to(bar, { width: width + "%", duration: 1.2, ease: "power2.out" });
+        });
+      });
+
+      aboutBtn.addEventListener("click", () => {
+        aboutText.style.display = "block";
+        skillsBars.style.display = "none";
+        bars.forEach((bar) => { 
+          gsap.to(bar, { width: 0, duration: 0.5 });
+        });
+      });
+    </script>
+  </body>
+</html> 
